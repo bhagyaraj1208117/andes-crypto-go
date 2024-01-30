@@ -3,7 +3,7 @@ package mcl
 import (
 	"runtime"
 
-	"github.com/bhagyaraj1208117/andes-abc-1/core/check"
+	"github.com/bhagyaraj1208117/andes-core-go/core/check"
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
 	"github.com/herumi/bls-go-binary/bls"
 )

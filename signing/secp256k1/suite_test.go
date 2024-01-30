@@ -3,7 +3,7 @@ package secp256k1_test
 import (
 	"testing"
 
-	"github.com/bhagyaraj1208117/andes-abc-1/core/check"
+	"github.com/bhagyaraj1208117/andes-core-go/core/check"
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
 	"github.com/bhagyaraj1208117/andes-crypto-go/mock"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing/secp256k1"

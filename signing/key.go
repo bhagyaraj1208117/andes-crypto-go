@@ -1,9 +1,9 @@
 package signing
 
 import (
-	"github.com/bhagyaraj1208117/andes-abc-1/core/check"
+	"github.com/bhagyaraj1208117/andes-core-go/core/check"
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
-	logger "github.com/bhagyaraj1208117/andes-logger-xyz"
+	logger "github.com/bhagyaraj1208117/andes-logger-go"
 )
 
 var log = logger.GetOrCreate("crypto/signing")

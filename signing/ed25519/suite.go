@@ -5,7 +5,7 @@ import (
 	"crypto/ed25519"
 
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
-	logger "github.com/bhagyaraj1208117/andes-logger-xyz"
+	logger "github.com/bhagyaraj1208117/andes-logger-go"
 )
 
 var log = logger.GetOrCreate("crypto/signing/ed25519")

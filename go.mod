@@ -4,8 +4,8 @@ go 1.20
 
 require (
 	filippo.io/edwards25519 v1.1.0
-	github.com/bhagyaraj1208117/andes-abc-1 v0.0.0-20240116110639-33aa4ec09eec
-	github.com/bhagyaraj1208117/andes-logger-xyz v0.0.0-20240117091325-c86a73c1050e
+	github.com/bhagyaraj1208117/andes-core-go v1.2.13
+	github.com/bhagyaraj1208117/andes-logger-go v1.0.13
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0
 	github.com/herumi/bls-go-binary v1.33.0
 	github.com/stretchr/testify v1.8.4

@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/bhagyaraj1208117/andes-abc-1/hashing/sha256"
+	"github.com/bhagyaraj1208117/andes-core-go/hashing/sha256"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing/mcl"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing/mcl/singlesig"

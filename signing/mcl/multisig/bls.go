@@ -1,8 +1,8 @@
 package multisig
 
 import (
-	"github.com/bhagyaraj1208117/andes-abc-1/core/check"
-	"github.com/bhagyaraj1208117/andes-abc-1/hashing"
+	"github.com/bhagyaraj1208117/andes-core-go/core/check"
+	"github.com/bhagyaraj1208117/andes-core-go/hashing"
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing/mcl"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing/mcl/singlesig"

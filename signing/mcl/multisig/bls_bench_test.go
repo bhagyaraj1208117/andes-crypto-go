@@ -3,7 +3,7 @@ package multisig_test
 import (
 	"testing"
 
-	"github.com/bhagyaraj1208117/andes-abc-1/hashing/blake2b"
+	"github.com/bhagyaraj1208117/andes-core-go/hashing/blake2b"
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing/mcl"
@@ -55,35 +55,19 @@ func benchmarkConcatPubKeys(nPubKeys int, b *testing.B) {
 }
 
 func Benchmark_AggregatedSig63(b *testing.B) {
-	hasher, err := blake2b.NewBlake2bWithSize(blsHashSize)
-	require.Nil(b, err)
-	llSig := &multisig.BlsMultiSigner{Hasher: hasher}
-
-	benchmarkAggregatedSig(63, llSig, b)
-}
-
-func Benchmark_AggregatedSigKOSK63(b *testing.B) {
-	llSig := &multisig.BlsMultiSignerKOSK{}
-
-	benchmarkAggregatedSig(63, llSig, b)
+	benchmarkAggregatedSig(63, b)
 }
 
 func Benchmark_AggregatedSig400(b *testing.B) {
+	benchmarkAggregatedSig(400, b)
+}
+
+func benchmarkAggregatedSig(nPubKeys uint16, b *testing.B) {
+	msg := []byte(testMessage)
+
 	hasher, err := blake2b.NewBlake2bWithSize(blsHashSize)
 	require.Nil(b, err)
 	llSig := &multisig.BlsMultiSigner{Hasher: hasher}
-
-	benchmarkAggregatedSig(400, llSig, b)
-}
-
-func Benchmark_AggregatedSigKOSK400(b *testing.B) {
-	llSig := &multisig.BlsMultiSignerKOSK{}
-
-	benchmarkAggregatedSig(400, llSig, b)
-}
-
-func benchmarkAggregatedSig(nPubKeys uint16, llSig crypto.LowLevelSignerBLS, b *testing.B) {
-	msg := []byte(testMessage)
 	pubKeys, sigShares := createSigSharesBLS(nPubKeys, msg, llSig)
 
 	b.ResetTimer()
@@ -94,36 +78,20 @@ func benchmarkAggregatedSig(nPubKeys uint16, llSig crypto.LowLevelSignerBLS, b *
 }
 
 func Benchmark_VerifyAggregatedSig63(b *testing.B) {
-	hasher, err := blake2b.NewBlake2bWithSize(blsHashSize)
-	require.Nil(b, err)
-	llSig := &multisig.BlsMultiSigner{Hasher: hasher}
-
-	benchmarkVerifyAggregatedSig(63, llSig, b)
-}
-
-func Benchmark_VerifyAggregatedSigKOSK63(b *testing.B) {
-	llSig := &multisig.BlsMultiSignerKOSK{}
-
-	benchmarkVerifyAggregatedSig(63, llSig, b)
+	benchmarkVerifyAggregatedSig(63, b)
 }
 
 func Benchmark_VerifyAggregatedSig400(b *testing.B) {
-	hasher, err := blake2b.NewBlake2bWithSize(blsHashSize)
-	require.Nil(b, err)
-	llSig := &multisig.BlsMultiSigner{Hasher: hasher}
-
-	benchmarkVerifyAggregatedSig(400, llSig, b)
+	benchmarkVerifyAggregatedSig(400, b)
 }
 
-func Benchmark_VerifyAggregatedSigKOSK400(b *testing.B) {
-	llSig := &multisig.BlsMultiSignerKOSK{}
-
-	benchmarkVerifyAggregatedSig(400, llSig, b)
-}
-
-func benchmarkVerifyAggregatedSig(nPubKeys uint16, llSig crypto.LowLevelSignerBLS, b *testing.B) {
+func benchmarkVerifyAggregatedSig(nPubKeys uint16, b *testing.B) {
 	msg := []byte(testMessage)
 
+	hasher, err := blake2b.NewBlake2bWithSize(blsHashSize)
+	require.Nil(b, err)
+
+	llSig := &multisig.BlsMultiSigner{Hasher: hasher}
 	pubKeys, sigShares := createSigSharesBLS(nPubKeys, msg, llSig)
 	aggSigBytes, err := llSig.AggregateSignatures(pubKeys[0].Suite(), sigShares, pubKeys)
 	require.Nil(b, err)

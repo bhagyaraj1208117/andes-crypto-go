@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/bhagyaraj1208117/andes-abc-1/core"
+	"github.com/bhagyaraj1208117/andes-core-go/core"
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
 	"github.com/bhagyaraj1208117/andes-crypto-go/encryption/x25519"
 	"github.com/bhagyaraj1208117/andes-crypto-go/signing"
@@ -28,7 +28,7 @@ func TestEncryptedData_EncryptDecryptProcessOK(t *testing.T) {
 	require.Equal(t, data, decryptedData)
 }
 
-func TestEncryptedData_ErdJSEncryptedDataForBob(t *testing.T) {
+func TestEncryptedData_MoaJSEncryptedDataForBob(t *testing.T) {
 	encryptedMessage := []byte("alice's secret text for bob")
 	bobSecret, _ := hex.DecodeString("b8ca6f8203fb4b545a8e83c5384da033c415db155b53fb5b8eba7ff5a039d639")
 	edSuite := ed25519.NewEd25519()

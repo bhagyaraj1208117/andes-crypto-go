@@ -4,7 +4,7 @@ import (
 	"crypto/cipher"
 
 	crypto "github.com/bhagyaraj1208117/andes-crypto-go"
-	logger "github.com/bhagyaraj1208117/andes-logger-xyz"
+	logger "github.com/bhagyaraj1208117/andes-logger-go"
 	secp "github.com/decred/dcrd/dcrec/secp256k1/v4"
 )
 

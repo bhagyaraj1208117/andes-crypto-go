@@ -3,7 +3,7 @@ package x25519_test
 import (
 	"testing"
 
-	"github.com/bhagyaraj1208117/andes-abc-1/core/check"
+	"github.com/bhagyaraj1208117/andes-core-go/core/check"
 	"github.com/bhagyaraj1208117/andes-crypto-go/encryption/x25519"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/curve25519"
